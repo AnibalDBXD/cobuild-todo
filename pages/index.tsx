@@ -1,8 +1,11 @@
-import { Text } from "@chakra-ui/react";
+import { Stack, Heading, Button } from "@chakra-ui/react";
 import type { NextPage } from 'next';
 const Home: NextPage = () => {
   return (
-    <Text>Hello World</Text>
+    <Stack>
+      <Heading>Login with</Heading>
+      <Button>Google</Button>
+    </Stack>
   );
 };
 
