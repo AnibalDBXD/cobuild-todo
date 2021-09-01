@@ -1,8 +1,9 @@
-import { Box, Spinner, Text } from "@chakra-ui/react";
+import { Spinner, Stack } from "@chakra-ui/react";
 import gql from "graphql-tag";
 import React from "react";
 import { useQuery } from "react-apollo";
 import { IItem } from "../../interfaces/todo";
+import Item from "./Item";
 
 interface ITodos {
   uid: string;
@@ -30,9 +31,9 @@ const Todos = ({ uid }: ITodos): JSX.Element => {
     <Spinner />;
   }
   return (
-    <Box>
-      {items?.map(({ text, id }) => <Text key={id}>{text}</Text> )}
-    </Box>
+    <Stack width="90%">
+      {items?.map((item) => <Item key={item.id} {...item} /> )}
+    </Stack>
   );
 };
 
