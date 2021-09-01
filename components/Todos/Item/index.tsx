@@ -1,5 +1,7 @@
-import { GridItem, Grid, Checkbox, Text, Input, useBoolean } from "@chakra-ui/react";
+import { GridItem, Grid, Checkbox, Text, Input, useBoolean, Spinner } from "@chakra-ui/react";
+import gql from "graphql-tag";
 import { useState } from "react";
+import { useMutation } from "react-apollo";
 import { IItem } from "../../../interfaces/todo";
 import Delete from "./Delete";
 import Edit from "./Edit";
@@ -8,9 +10,23 @@ interface IItemComponent extends IItem{
   onUpdate: () => void;
 }
 
+const TOGGLE_TODO = gql`
+mutation TodoToggle($id: ID!, $complete: Boolean!) {
+  todoUpdate(filter: { id: $id }, data: {
+      complete: $complete
+  }) {
+    id
+    complete
+  }
+}
+`;
+
 const Item = ({ complete, text, id, onUpdate }: IItemComponent): JSX.Element => {
   const [isEditing, setEditing] = useBoolean(false);
   const [value, setValue] = useState("");
+
+  const [toggleTodo, { loading }] = useMutation(TOGGLE_TODO);
+
   return (
     <Grid backgroundColor={`${complete ? "gray.300" : "transparent"}`}
       border="2px"
@@ -25,12 +41,19 @@ const Item = ({ complete, text, id, onUpdate }: IItemComponent): JSX.Element => 
         display="flex"
         justifyContent="center"
       >
-        <Checkbox
-          borderColor="black"
-          height="2rem"
-          isChecked={complete}
-          size="lg"
-        />
+        {
+          loading ? <Spinner /> : (
+            <Checkbox
+              borderColor="black"
+              height="2rem"
+              isChecked={complete}
+              onChange={(): void => {
+                toggleTodo({ variables: {id, complete: !complete}}).finally(onUpdate);
+              }}
+              size="lg"
+            />
+          )
+        }
       </GridItem>
       <GridItem colSpan={4}
         fontSize="1.5rem"
