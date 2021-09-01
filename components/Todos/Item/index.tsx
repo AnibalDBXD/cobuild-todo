@@ -1,7 +1,7 @@
-import { DeleteIcon } from "@chakra-ui/icons";
-import { GridItem, Grid, Checkbox, IconButton, Text, Input, useBoolean } from "@chakra-ui/react";
+import { GridItem, Grid, Checkbox, Text, Input, useBoolean } from "@chakra-ui/react";
 import { useState } from "react";
 import { IItem } from "../../../interfaces/todo";
+import Delete from "./Delete";
 import Edit from "./Edit";
 
 interface IItemComponent extends IItem{
@@ -64,13 +64,7 @@ const Item = ({ complete, text, id, onUpdate }: IItemComponent): JSX.Element => 
         />
       </GridItem>
       <GridItem colSpan={1}>
-        <IconButton
-          aria-label="Delete"
-          colorScheme="red"
-          fontSize="20px"
-          icon={<DeleteIcon />}
-          variant="outline"
-        />
+        <Delete id={id} onDelete={onUpdate} />
       </GridItem>
     </Grid>
   );
