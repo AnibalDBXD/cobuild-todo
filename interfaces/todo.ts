@@ -3,7 +3,8 @@ export interface ITodo {
 }
 
 export interface IItem {
-    id: string
-    text: string
-    completed: boolean
+    id: string;
+    userId: string;
+    text: string;
+    complete: boolean;
 }
