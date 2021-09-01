@@ -8,7 +8,6 @@ const Layout: FC = ({ children }) => {
       flexDirection="column"
       minHeight="100vh"
       minWidth="100vw"
-      padding={1}
     >
       {children}
     </Flex>
