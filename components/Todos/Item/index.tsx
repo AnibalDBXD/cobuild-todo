@@ -18,7 +18,12 @@ const Item = ({ complete, text }: IItem): JSX.Element => {
         display="flex"
         justifyContent="center"
       >
-        <Checkbox isChecked={complete} size="lg" />
+        <Checkbox
+          borderColor="black"
+          height="2rem"
+          isChecked={complete}
+          size="lg"
+        />
       </GridItem>
       <GridItem colSpan={4}
         fontSize="1.5rem"
