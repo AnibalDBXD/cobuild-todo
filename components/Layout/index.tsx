@@ -7,7 +7,6 @@ const Layout: FC = ({ children }) => {
       backgroundColor="gray.100"
       flexDirection="column"
       minHeight="100vh"
-      minWidth="100vw"
     >
       {children}
     </Flex>
