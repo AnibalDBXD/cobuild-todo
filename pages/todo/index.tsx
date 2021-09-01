@@ -18,8 +18,8 @@ const Todo: NextPage = () => {
             alignItems="center"
             flexDirection="column"
             gridGap="1rem"
-            height="50vh"
             justifyContent="center"
+            minHeight="50vh"
             width="100%"
           >
             <Heading
