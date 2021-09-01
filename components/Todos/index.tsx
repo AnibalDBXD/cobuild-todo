@@ -47,7 +47,7 @@ const Todos = ({ uid }: ITodos): JSX.Element => {
   return (
     <Stack marginBottom="1rem" width="90%">
       <AddItem onAdd={update} uid={uid} />
-      {items?.map((item) => <Item key={item.id} {...item} /> )}
+      {items?.map((item) => <Item key={item.id} onUpdate={update} {...item} /> )}
     </Stack>
   );
 };

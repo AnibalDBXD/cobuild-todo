@@ -1,9 +1,16 @@
-import { CloseIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
+import { DeleteIcon } from "@chakra-ui/icons";
 import { GridItem, Grid, Checkbox, IconButton, Text, Input, useBoolean } from "@chakra-ui/react";
+import { useState } from "react";
 import { IItem } from "../../../interfaces/todo";
+import Edit from "./Edit";
 
-const Item = ({ complete, text }: IItem): JSX.Element => {
+interface IItemComponent extends IItem{
+  onUpdate: () => void;
+}
+
+const Item = ({ complete, text, id, onUpdate }: IItemComponent): JSX.Element => {
   const [isEditing, setEditing] = useBoolean(false);
+  const [value, setValue] = useState("");
   return (
     <Grid backgroundColor={`${complete ? "gray.300" : "transparent"}`}
       border="2px"
@@ -35,6 +42,7 @@ const Item = ({ complete, text }: IItem): JSX.Element => {
             <Input
               fontSize="1.5rem"
               fontWeight="bold"
+              onChange={({ target: { value } }): void => setValue(value)}
               placeholder="Cancel task"
               textAlign="center"
             />
@@ -47,13 +55,12 @@ const Item = ({ complete, text }: IItem): JSX.Element => {
         }
       </GridItem>
       <GridItem colSpan={1}>
-        <IconButton
-          aria-label="Edit"
-          colorScheme="gray"
-          fontSize="20px"
-          icon={isEditing ? <CloseIcon /> :<EditIcon />}
-          onClick={setEditing.toggle}
-          variant="outline"
+        <Edit
+          id={id}
+          isEditing={isEditing}
+          onEdit={onUpdate}
+          setEditing={setEditing}
+          text={value}
         />
       </GridItem>
       <GridItem colSpan={1}>
