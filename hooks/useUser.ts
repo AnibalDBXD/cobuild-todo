@@ -18,8 +18,9 @@ export default function useUser(): IUser  {
   }, []);
 
   useEffect(() => {
+    console.log(user);
     user === USER_STATES.NOT_LOGGED && router.push("/");
-  }, [router, user]);
+  }, [user]);
 
   return user;
 }
