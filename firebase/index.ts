@@ -23,3 +23,23 @@ export const loginWithGoogle = (): Promise<firebase.auth.UserCredential> => {
   const googleProvider = new firebase.auth.GoogleAuthProvider();
   return firebase.auth().signInWithPopup(googleProvider);
 };
+
+export const signOut = (): Promise<void> => {
+  return firebase
+    .auth()
+    .signOut();
+};
+
+export const createEmailUser = (
+  email: string,
+  password: string,
+): Promise<firebase.auth.UserCredential> => {
+  return firebase.auth().createUserWithEmailAndPassword(email, password);
+};
+
+export const loginWithEmail = (
+  email: string,
+  password: string,
+): Promise<firebase.auth.UserCredential> => {
+  return firebase.auth().signInWithEmailAndPassword(email, password);
+};
