@@ -1,12 +1,6 @@
-import { Button } from "@chakra-ui/react";
-import { ReactNode } from "react";
+import { Button, ButtonProps } from "@chakra-ui/react";
 
-interface IFormButton {
-    isLoading?: boolean;
-    children: ReactNode;
-}
-
-const FormButton = ({children, ...props}: IFormButton): JSX.Element => {
+const FormButton = ({children, ...props}: ButtonProps): JSX.Element => {
   return (
     <Button color="white" colorScheme="cyan" size="lg" {...props} type="submit">{children}</Button>
   );
