@@ -1,6 +1,10 @@
 {
-  "extends": ["next/core-web-vitals", "dbxd"],
+  "extends": ["next/core-web-vitals", "dbxd", "plugin:cypress/recommended"],
+  "env": {
+    "cypress/globals": true
+  },
   "rules": {
     "react/react-in-jsx-scope": "off"
-  }
+  },
+  "plugins": ["cypress"]
 }
