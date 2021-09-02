@@ -25,7 +25,7 @@ const Login = (): JSX.Element => {
         <Form onSubmit={handleSubmit}>
           {errorMessage && (
             <Alert marginBottom="1rem" status="error">
-              <AlertIcon />
+              <AlertIcon aria-label="error" />
               {errorMessage}
             </Alert>
           )}
