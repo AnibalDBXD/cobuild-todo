@@ -1,6 +1,6 @@
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
-export const validateEmail = (value: string): string  => {
+export const validateEmail = (value = ""): string  => {
   let error = "";
   if (!value) {
     error = 'Required';
@@ -10,7 +10,7 @@ export const validateEmail = (value: string): string  => {
   return error;
 };
 
-export const validatePassword = (value: string): string =>{
+export const validatePassword = (value = ""): string =>{
   let error = "";
   if(value.length < 3){
     error = "The password must have more than 3 characters";
