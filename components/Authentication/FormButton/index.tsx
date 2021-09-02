@@ -2,7 +2,7 @@ import { Button } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 interface IFormButton {
-    isLoading: boolean;
+    isLoading?: boolean;
     children: ReactNode;
 }
 
