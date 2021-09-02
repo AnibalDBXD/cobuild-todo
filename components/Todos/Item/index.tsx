@@ -31,6 +31,7 @@ const Item = ({ complete, text, id, onUpdate }: IItemComponent): JSX.Element => 
     <Grid backgroundColor={`${complete ? "gray.300" : "transparent"}`}
       border="2px"
       borderColor="gray"
+      data-testId={text}
       gap={4}
       padding=".5rem"
       templateColumns="repeat(7, 1fr)"
@@ -66,10 +67,10 @@ const Item = ({ complete, text, id, onUpdate }: IItemComponent): JSX.Element => 
               fontSize="1.5rem"
               fontWeight="bold"
               onChange={({ target: { value } }): void => setValue(value)}
-              placeholder="Cancel task"
+              placeholder="new Task text"
               textAlign="center"
             />
-            : 
+            :
             <Text
               as="h3"
               onDoubleClick={setEditing.on}

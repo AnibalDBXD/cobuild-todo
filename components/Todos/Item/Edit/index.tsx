@@ -42,7 +42,7 @@ const Edit = ({ id, text, isEditing, setEditing, onEdit }: IEdit): JSX.Element =
 
   return (
     <IconButton
-      aria-label="Edit"
+      aria-label={isEditing ? "Submit" :"Edit"}
       colorScheme={isEditing ? "green" :"gray"}
       fontSize="20px"
       icon={isEditing ? <CheckIcon /> :<EditIcon />}
