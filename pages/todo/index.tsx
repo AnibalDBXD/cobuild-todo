@@ -3,13 +3,22 @@ import Todos from "../../components/Todos";
 import { AppProvider} from '@8base/app-provider';
 import useUser from "../../hooks/useUser";
 import FullSpinner from "../../components/FullSpinner";
-import { Flex, Heading } from "@chakra-ui/react";
+import { Button, Flex, Heading, useBoolean } from "@chakra-ui/react";
+import React from "react";
+import { ArrowBackIcon } from "@chakra-ui/icons";
+import { signOut } from "../../firebase";
 
 const Todo: NextPage = () => {
   const user = useUser();
+  const [isLoading, setLoading] = useBoolean(false);
   if(user === undefined){
     return <FullSpinner />;
   }
+
+  const handleSignOut = (): void => {
+    setLoading.on();
+    signOut().finally(() => setLoading.off);
+  };
   return (
     <AppProvider onRequestError={(): null => null} onRequestSuccess={(): null => null} uri="https://api.8base.com/ckszdpaqw00jh08mh269g6m5r">
       {
@@ -30,6 +39,20 @@ const Todo: NextPage = () => {
               fontWeight="extrabold"
             >TodoApp
             </Heading>
+            <Button
+              colorScheme="blackAlpha"
+              fontWeight="bold"
+              isLoading={isLoading}
+              left="0"
+              margin="2rem"
+              onClick={handleSignOut}
+              position="fixed"
+              rightIcon={<ArrowBackIcon />}
+              top="0"
+              variant="outline"
+            >
+              Sign out
+            </Button>
             <Todos uid={user || ""} />
           </ Flex>
         )
