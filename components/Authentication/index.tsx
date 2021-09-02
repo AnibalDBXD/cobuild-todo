@@ -28,7 +28,7 @@ const Authentication = (): JSX.Element => {
         isRegistering ? <Login /> : <Register />
       }
       <NextLink href={{query: { registering: !isRegistering }}} passHref replace>
-        <Link>{isRegistering ? "Already have an account?" : "New? Create an account"}</Link>
+        <Link color="teal.400">{isRegistering ? "Already have an account?" : "New? Create an account"}</Link>
       </NextLink>
       <Button
         backgroundColor="white"
