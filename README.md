@@ -1,8 +1,8 @@
 ## Requisitos
 
-Cumplido: ✅
-Hecho pero una alternativa: ⚠️
-No cumplido: ⛔
+Cumplido: ✅ <br />
+Hecho pero una alternativa: ⚠️ <br />
+No cumplido: ⛔ <br />
 
 Esta sera un Task List con login y un CRUD de Tasks:
 - Create task: ✅
@@ -32,10 +32,10 @@ Elementos a Evaluar:
 3. `npm install`
 4. `npm run dev`
 
-## Correr tests
+## Tests
 - `npm run test`
 
-⚠️⚠️⚠️
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️ <br />
 Si los tests de TODO fallan podria ser por este error:
 ```
 GraphQL error:
