@@ -15,7 +15,9 @@
         "isolatedModules": false
     },
     "include": [
-        "../node_modules/cypress",
-        "./**/*.ts"
+        "integration/*.ts",
+        "support/*.ts",
+        "support/*.js",
+        "../node_modules/cypress"
     ]
 }
