@@ -30,12 +30,9 @@ const Login = (): JSX.Element => {
             </Alert>
           )}
           <Field component={FormInput} name="email" validate={validateEmail} />
-          <Field
-            component={(props: FieldProps): JSX.Element =>
-              <FormInput {...props} autoComplete="current-password" type="password" />}
-            name="password"
-            validate={validatePassword}
-          />
+          <Field name="password" validate={validatePassword}>
+            {(props: FieldProps): JSX.Element => <FormInput {...props} autoComplete="current-password" type="password" />}
+          </Field>
           <FormButton isLoading={isSubmitting}>Log in</FormButton>
         </Form>
       )}

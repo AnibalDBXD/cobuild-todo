@@ -31,18 +31,17 @@ const Register = (): JSX.Element => {
             </Alert>
           )}
           <Field component={FormInput} name="email" validate={validateEmail} />
-          <Field
-            component={(props: FieldProps): JSX.Element =>
+          <Field name="password" validate={validatePassword}>
+            {(props: FieldProps): JSX.Element =>
               <FormInput {...props} autoComplete="new-password" type="password" />}
-            name="password"
-            validate={validatePassword}
-          />
+          </Field>
           <Field
-            component={(props: FieldProps): JSX.Element =>
-              <FormInput {...props} autoComplete="new-password" type="password" />}
             name="confirm password"
             validate={(value: string): string => validateConfirmPassword(value, password)}
-          />
+          >
+            {(props: FieldProps): JSX.Element =>
+              <FormInput {...props} autoComplete="new-password" type="password" />}
+          </Field>
           <FormButton isLoading={isSubmitting}>Sign in</FormButton>
         </Form>
       )}

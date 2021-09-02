@@ -13,7 +13,7 @@ const FormInput = ({ field, form, type, autoComplete }: IFormInput): JSX.Element
     <FormControl isInvalid={Boolean(form?.errors?.[name])} isRequired marginBottom="1rem">
       <FormLabel htmlFor={name} textTransform="capitalize">{name}</FormLabel>
       <Input
-        {...field} 
+        {...field}
         autoComplete={autoComplete}
         backgroundColor="white"
         id={name}
