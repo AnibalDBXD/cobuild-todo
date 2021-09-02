@@ -1,7 +1,7 @@
 ## Requisitos
 
 Cumplido: ✅ <br />
-Hecho pero una alternativa: ⚠️ <br />
+Hecho pero con una alternativa: ⚠️ <br />
 No cumplido: ⛔ <br />
 
 Esta sera un Task List con login y un CRUD de Tasks:
@@ -13,10 +13,12 @@ Esta sera un Task List con login y un CRUD de Tasks:
 Para el test necesitamos que la aplicacion sea con React y que se conecte a la plataforma 8base.com: ✅.
 
 - La aplicacion en React puede hacerse con CRA, Next o GatsbyJs: ✅.
-- El login se puede hacerse con la cuenta que provecto de 8base (AWS Cognito): ⚠️
+- El login se puede hacerse con la cuenta que provecto de 8base (AWS Cognito): ⚠️ -> **Firebase**
 - Para el frontend se pueden usar cualquier libreria de componentes para React.
-- Para la funcion de MARCAR COMO COMPLETADO se require que sea a traves de un Cloud Function de la plataforma: Un Webhook o un resolver: ⚠️
-- Se requiere que se implemente al menos 3 Unit Tests, y 1 Test E2E ( preferiblemente con cypress): ✅
+- Para la funcion de MARCAR COMO COMPLETADO se require que sea a traves de un Cloud Function de la plataforma: Un Webhook o un resolver: ⚠️ -> **GraphQL PUT**
+- Se requiere que se implemente al menos 3 Unit Tests, y 1 Test E2E ( preferiblemente con cypress): <br />
+E2E: ✅ <br />
+Unit: ⚠️ -> **Testing library**
 
 Elementos a Evaluar:
 
